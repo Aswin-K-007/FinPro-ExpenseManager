@@ -8,7 +8,7 @@ import { FormsModule, NgForm } from '@angular/forms';
   templateUrl: './register.html',
   styleUrl: './register.scss'
 })
-export class RegisterComponent {
+export class Register {
   user = {
     firstName: '',
     lastName: '',
@@ -18,8 +18,9 @@ export class RegisterComponent {
     confirmPassword: ''
   };
 
-  onSubmit(){
+  registerUser(){
     if (this.user.password !== this.user.confirmPassword) {
+      console.log("Passwords do not match!",this.user.password,this.user.confirmPassword);
       alert("Passwords do not match!");
       return;
     }

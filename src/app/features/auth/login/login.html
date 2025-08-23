@@ -1,1 +1,22 @@
-<p>login works!</p>
+
+<div class="container">
+  <h3 class="welcome-text">
+    Welcome to <span class="brand">FinPro !!!!!</span> 🎉<br />
+  </h3>
+  
+  <form #regForm="ngForm" (ngSubmit)="loginUser()" class="register-form">
+    <h2>User Registration</h2>
+
+    <div class="form-group">
+      <label>User Name</label>
+      <input type="text" name="firstName" [(ngModel)]="user.username" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="user.password" required minlength="6" class="form-control" />
+    </div>
+
+    <button type="submit" [disabled]="regForm.invalid" class="btn-submit">Login</button>
+  </form>
+</div>
