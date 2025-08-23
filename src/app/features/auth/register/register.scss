@@ -1,0 +1,110 @@
+
+/* Global body styling */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+  color: #e59494;
+}
+
+/* Container to center the form */
+.container {
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Welcome text */
+.welcome-text {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #6a3131;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.welcome-text .brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 0px 0px 8px #ffcc00;
+}
+
+/* Form styling */
+.register-form {
+  width: 100%;
+  background: #2e2e3e;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Heading */
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #7dd3fc;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+.form-control {
+  width: 95%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+  background-color: #3c3c54;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border: 1px solid #38bdf8;
+  box-shadow: 0px 0px 5px #38bdf8;
+  background-color: #444466;
+}
+
+/* Submit Button */
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+  transform: scale(1.02);
+}

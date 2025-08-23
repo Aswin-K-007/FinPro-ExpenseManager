@@ -1,1 +1,43 @@
-<p>register works!</p>
+
+<div class="container">
+  <h3 class="welcome-text">
+    Welcome to <span class="brand">WishIt!!!!!</span> 🎉<br />
+    Kindly Fill Up the Below Form to Make Your Wishes Come True!!
+  </h3>
+  
+  <form #regForm="ngForm" (ngSubmit)="onSubmit()" class="register-form">
+    <h2>User Registration</h2>
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" name="firstName" [(ngModel)]="user.firstName" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" name="lastName" [(ngModel)]="user.lastName" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="user.email" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Contact No</label>
+      <input type="tel" name="contactNo" [(ngModel)]="user.contactNo" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="user.password" required minlength="6" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input type="password" name="confirmPassword" [(ngModel)]="user.confirmPassword" required minlength="6" class="form-control" />
+    </div>
+
+    <button type="submit" [disabled]="regForm.invalid" class="btn-submit">Register</button>
+  </form>
+</div>
