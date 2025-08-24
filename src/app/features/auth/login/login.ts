@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { compileComponentFromMetadata } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
+  standalone:true,
   imports: [FormsModule,CommonModule],
   templateUrl: './login.html',
-  styleUrl: './login.scss'
+  styleUrls: ['../auth-styles.scss']
 })
 export class Login {
   user ={

@@ -4,9 +4,10 @@ import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
+  standalone:true,
   imports: [FormsModule,CommonModule],
   templateUrl: './register.html',
-  styleUrl: './register.scss'
+  styleUrls: ['../auth-styles.scss']
 })
 export class Register {
   user = {
