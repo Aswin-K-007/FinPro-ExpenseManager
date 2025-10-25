@@ -1,6 +1,7 @@
 import { CommonModule} from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../auth/services/auth';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,16 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
-export class Home {
-  isLoggedIn: boolean = false;
+export class Home implements OnInit{
+  isLoggedIn = false;
+
+  constructor(private authService: AuthService){}
+  
+  ngOnInit(): void {
+    this.authService.isLoggedIn$.subscribe({
+      next: (status) => {
+      this.isLoggedIn = status;
+      }
+    });
+  }
 }

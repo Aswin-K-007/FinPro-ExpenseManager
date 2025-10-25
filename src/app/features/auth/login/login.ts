@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +16,8 @@ export class Login {
     username:'',
     password:''
   }
+  
+  constructor(private authService: AuthService, private router: Router){}
 
   loginUser(){
     if(this.user.username !== 'aswin' && this.user.password !== 'password'){
@@ -21,8 +25,14 @@ export class Login {
       alert("Invalid Username or Password");
     }
     else{
+      this.authService.login();
       console.log("Login Successful..",this.user);
-      alert("Login Successful..");
+      this.router.navigate(['/home']);
     }
+  }
+
+  logoutUser() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
