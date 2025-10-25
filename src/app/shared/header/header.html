@@ -3,14 +3,39 @@
     <a routerLink="/">FinPro</a>
   </div>
 
-  <ul class="nav-links">
-    <li><a routerLink="/home" routerLinkActive="active">Dashboard</a></li>
-    <li><a routerLink="/expenses" routerLinkActive="active">Expenses</a></li>
-    <li><a routerLink="/reports" routerLinkActive="active">Reports</a></li>
-    <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
-  </ul>
+  @if(isLoggedIn) {
+    <ul class="nav-links">
+      <li><a routerLink="/home" routerLinkActive="active">Dashboard</a></li>
+      <li><a routerLink="/expenses" routerLinkActive="active">Expenses</a></li>
+      <li><a routerLink="/reports" routerLinkActive="active">Reports</a></li>
+    </ul>
 
-  <div class="nav-actions">
-    <button class="btn-logout" routerLink="/login">Logout</button>
-  </div>
+    <div class="navbar-user">
+      <img 
+        src="assets/profile-pic.png" 
+        alt="Profile" 
+        class="profile-pic" 
+        (click)="toggleDropdown()"
+      />
+
+      <div class="dropdown-menu" [class.show]="dropdownOpen">
+        <a class="dropdown-item" routerLink="/profile" (click)="dropdownOpen=false">My Profile</a>
+        <a class="dropdown-item" routerLink="/settings" (click)="dropdownOpen=false">Settings</a>
+        <hr class="dropdown-divider" />
+        <a class="dropdown-item" (click)="logoutUser()">Logout</a>
+      </div>
+    </div>
+  }
+  @else {
+    <div class="nav-actions">
+      @if(showAuthButtons()){
+        @if(showLoginButton()){
+          <button routerLink="/login" class="btn-auth">Login</button>
+        }
+        @if(showRegisterButton()){
+          <button routerLink="/register" class="btn-auth">Register</button>
+        }
+      }
+    </div>
+  }
 </nav>
