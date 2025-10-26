@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ExpensesService } from '@expenses/services/expenses';
 
 @Component({
   selector: 'app-add-edit-expense',
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './add-edit-expenses.html',
+  imports: [CommonModule, FormsModule,RouterLink],
+  templateUrl: './add-expenses.html',
   styleUrl: '../../styles/expenses-styles.scss'
 })
-export class AddEditExpenses implements OnInit {
+export class AddExpenses implements OnInit {
   expenseId: number | null = null;
   expense = {
     id: 0,
+    title:'',
     category: '',
     amount: 0,
-    date: ''
+    date: '',
+    notes:''
   };
 
   constructor(
@@ -31,16 +33,11 @@ export class AddEditExpenses implements OnInit {
     if (idParam) {
       this.expenseId = +idParam;
       const existing = this.expensesService.getExpenseById(this.expenseId);
-      if (existing) this.expense = { ...existing };
     }
   }
 
-  saveExpense(): void {
-    if (this.expenseId) {
-      this.expensesService.updateExpense(this.expense);
-    } else {
+  addExpense(): void {
       this.expensesService.addExpense(this.expense);
-    }
-    this.router.navigate(['/expenses']);
+      this.router.navigate(['/expenses']);
   }
 }

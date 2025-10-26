@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddEditExpenses } from './add-edit-expenses';
+import { EditExpenses } from './edit-expenses';
 
-describe('AddEditExpenses', () => {
-  let component: AddEditExpenses;
-  let fixture: ComponentFixture<AddEditExpenses>;
+describe('EditExpenses', () => {
+  let component: EditExpenses;
+  let fixture: ComponentFixture<EditExpenses>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddEditExpenses]
+      imports: [EditExpenses]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddEditExpenses);
+    fixture = TestBed.createComponent(EditExpenses);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

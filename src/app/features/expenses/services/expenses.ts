@@ -1,32 +1,39 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 
 export class ExpensesService {
-  private expenses: any[] = [
-    { id: 1, category: 'Food', amount: 250, date: '2025-10-01' },
-    { id: 2, category: 'Transport', amount: 120, date: '2025-10-05' },
+  private expenses : any[] = [
+    { id: 1, title:'Lunch',category: 'Food', amount: 250, date: '2025-10-26', notes: 'Veg Thali' },
+    { id: 2, title:'Bus Fare',category: 'Transport', amount: 100, date: '2025-10-25', notes: 'Bus fare from Thane to Belapur' },
   ];
 
-  getExpenses() {
-    return [...this.expenses];
+   getExpenses(): Observable<any[]> {
+    return of([...this.expenses]);
   }
 
-  getExpenseById(id: number) {
-    return this.expenses.find(e => e.id === id);
-  }
-
-  addExpense(expense: any) {
+  addExpense(expense: any): Observable<boolean> {
     expense.id = this.expenses.length + 1;
     this.expenses.push(expense);
+    return of(true);
   }
 
-  updateExpense(updated: any) {
-    const index = this.expenses.findIndex(e => e.id === updated.id);
-    if (index !== -1) this.expenses[index] = updated;
+  getExpenseById(id: number): Observable<any> {
+    const expense = this.expenses.find(e => e.id === id);
+    return of(expense);
   }
 
-  deleteExpense(id: number) {
+  updateExpense(id: number, updatedExpense: any): Observable<boolean> {
+    const index = this.expenses.findIndex(e => e.id === id);
+    if (index !== -1) {
+      this.expenses[index] = { id, ...updatedExpense };
+    }
+    return of(true);
+  }
+
+  deleteExpense(id: number): Observable<boolean> {
     this.expenses = this.expenses.filter(e => e.id !== id);
+    return of(true);
   }
 }

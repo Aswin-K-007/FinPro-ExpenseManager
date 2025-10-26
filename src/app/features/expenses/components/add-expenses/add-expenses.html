@@ -1,0 +1,79 @@
+<div class="expenses-container">
+  <div class="expenses-header">
+    <h2>Add New Expense</h2>
+    <button class="btn-add" routerLink="/expenses">← Back</button>
+  </div>
+
+  <form class="expense-form" (ngSubmit)="addExpense()" #addExpenseForm="ngForm">
+    <div>
+      <label for="title">Expense Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        [(ngModel)]="expense.title"
+        required
+        placeholder="e.g., Groceries, Rent, Electricity"
+      />
+    </div>
+
+    <div>
+      <label for="amount">Amount (₹)</label>
+      <input
+        type="number"
+        id="amount"
+        name="amount"
+        [(ngModel)]="expense.amount"
+        required
+        placeholder="Enter amount"
+      />
+    </div>
+
+    <div>
+      <label for="category">Category</label>
+      <select
+        id="category"
+        name="category"
+        [(ngModel)]="expense.category"
+        required
+      >
+        <option value="">Select category</option>
+        <option>Food</option>
+        <option>Rent</option>
+        <option>Transportation</option>
+        <option>Entertainment</option>
+        <option>Health</option>
+        <option>Utilities</option>
+        <option>Others</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="date">Date</label>
+      <input
+        type="date"
+        id="date"
+        name="date"
+        [(ngModel)]="expense.date"
+        required
+      />
+    </div>
+
+    <div style="grid-column: 1 / -1;">
+      <label for="notes">Notes</label>
+      <textarea
+        id="notes"
+        name="notes"
+        [(ngModel)]="expense.notes"
+        placeholder="Add optional notes..."
+      ></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-cancel" routerLink="/expenses">
+        Cancel
+      </button>
+      <button type="submit">Add Expense</button>
+    </div>
+  </form>
+</div>

@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './view-expenses.html',
-  styleUrl: '../../styles/expenses-styles.scss'
+  styleUrls: ['./view-expenses.scss']
 })
 export class ViewExpenses implements OnInit {
   expenses: any[] = [];
@@ -16,11 +16,18 @@ export class ViewExpenses implements OnInit {
   constructor(private expensesService: ExpensesService) {}
 
   ngOnInit(): void {
-    this.expenses = this.expensesService.getExpenses();
+    this.loadExpenses();
+  }
+
+  loadExpenses(): void {
+    this.expensesService.getExpenses().subscribe(data => {
+      this.expenses = data;
+    });
   }
 
   deleteExpense(id: number): void {
-    this.expensesService.deleteExpense(id);
-    this.expenses = this.expensesService.getExpenses();
+    this.expensesService.deleteExpense(id).subscribe(() => {
+      this.loadExpenses();
+    });
   }
 }

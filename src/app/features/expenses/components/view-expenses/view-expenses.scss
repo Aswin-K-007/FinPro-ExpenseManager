@@ -1,0 +1,100 @@
+.expenses-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  color: #eaeaea;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Card styling */
+.expenses-card {
+  background: linear-gradient(145deg, #1f1f2e, #26263b);
+  border: 1px solid #2c2c45;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.expenses-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Header with gradient */
+.expenses-card .card-header {
+  background: linear-gradient(90deg, #3a0ca3, #7209b7);
+  color: #fff;
+  border-bottom: none;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Add Expense Button */
+.btn-add-expense {
+  background: #4361ee;
+  color: #fff;
+  border: none;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.btn-add-expense:hover {
+  background: #4895ef;
+  box-shadow: 0 0 10px rgba(72, 149, 239, 0.5);
+}
+
+/* ==== Table Styling ==== */
+.expenses-table {
+  width: 100%;
+  color: #eaeaea;
+  border-collapse: collapse;
+}
+
+.expenses-table thead {
+  background: linear-gradient(90deg, #2c2c44, #3c3c5c);
+  color: #a6a6ff;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.expenses-table th,
+.expenses-table td {
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+  vertical-align: middle;
+  border-color: #34344a;
+}
+
+.expenses-table tbody tr {
+  transition: all 0.25s ease-in-out;
+}
+
+.expenses-table tbody tr:hover {
+  background: rgba(70, 70, 120, 0.25);
+  transform: scale(1.01);
+}
+
+/* Action Buttons */
+.btn-outline-info,
+.btn-outline-danger {
+  border-width: 1px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-info:hover {
+  background-color: #4361ee;
+  color: #fff;
+  border-color: #4361ee;
+}
+
+.btn-outline-danger:hover {
+  background-color: #ef233c;
+  color: #fff;
+  border-color: #ef233c;
+}
+
+/* Empty state */
+.text-muted {
+  color: #888 !important;
+}
