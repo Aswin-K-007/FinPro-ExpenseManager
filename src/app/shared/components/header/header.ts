@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../features/auth/services/auth';
+import { AuthService } from '@auth/services/auth';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -39,6 +39,7 @@ export class Header implements OnInit{
   logoutUser() {
     this.authService.logout();
     this.dropdownOpen = false;
+    this.router.navigate(['/home']);
   }
 
   showAuthButtons(): boolean {
