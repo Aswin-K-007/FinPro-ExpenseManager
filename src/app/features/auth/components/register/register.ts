@@ -7,7 +7,7 @@ import { FormsModule, NgForm } from '@angular/forms';
   standalone:true,
   imports: [FormsModule,CommonModule],
   templateUrl: './register.html',
-  styleUrls: ['../auth-styles.scss']
+  styleUrls: ['../../styles/auth-styles.scss']
 })
 export class Register {
   user = {

@@ -1,0 +1,145 @@
+/* ================================
+   Common Styles for Expenses Pages
+   ================================ */
+
+/* --- Overall Layout --- */
+.expenses-container {
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  color: #fff;
+  min-height: 100vh;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Page Header --- */
+.expenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #e0e0e0;
+  }
+
+  .btn-primary {
+    background: #5a4fcf;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #7066f0;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* --- Table Styles (for View Expenses) --- */
+.expenses-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #22234b;
+
+  th, td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+  }
+
+  th {
+    background-color: #2d2e60;
+    color: #bcbcf0;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+
+  tr:nth-child(even) {
+    background-color: #242550;
+  }
+
+  tr:hover {
+    background-color: #2f3070;
+    transition: 0.2s ease-in;
+  }
+
+  td {
+    color: #e8e8ff;
+  }
+}
+
+/* --- Add/Edit Form Styles --- */
+.expense-form {
+  background: #212245;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  label {
+    font-weight: 500;
+    color: #bcbcf0;
+  }
+
+  input, select, textarea {
+    background: #2b2c5a;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.6rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &:focus {
+      outline: 2px solid #5a4fcf;
+    }
+  }
+
+  .btn-success {
+    background-color: #4caf50;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #5ed05e;
+      transform: translateY(-2px);
+    }
+  }
+
+  .btn-secondary {
+    background-color: #555;
+    border: none;
+    border-radius: 8px;
+    margin-left: 0.8rem;
+
+    &:hover {
+      background-color: #777;
+    }
+  }
+}
+
+/* --- Utility Classes --- */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}

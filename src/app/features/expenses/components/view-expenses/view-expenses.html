@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <h3>Your Expenses</h3>
+
+  <div class="text-end mb-3">
+    <a routerLink="/expenses/add" class="btn btn-primary">Add Expense</a>
+  </div>
+
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (expense of expenses; track expense.id) {
+        <tr>
+          <td>{{ expense.id }}</td>
+          <td>{{ expense.category }}</td>
+          <td>{{ expense.amount | currency:'INR' }}</td>
+          <td>{{ expense.date | date }}</td>
+          <td>
+            <a [routerLink]="['/expenses/edit', expense.id]" class="btn btn-sm btn-outline-light me-2">Edit</a>
+            <button (click)="deleteExpense(expense.id)" class="btn btn-sm btn-danger">Delete</button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5" class="text-center">No expenses found.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

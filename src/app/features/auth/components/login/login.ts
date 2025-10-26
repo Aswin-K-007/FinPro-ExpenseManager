@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../services/auth';
+import { AuthService } from '@auth/services/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone:true,
   imports: [FormsModule,CommonModule],
   templateUrl: './login.html',
-  styleUrls: ['../auth-styles.scss']
+  styleUrls: ['../../styles/auth-styles.scss']
 })
 export class Login {
   user ={

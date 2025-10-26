@@ -4,7 +4,16 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "baseUrl": "src",
+    "paths": {
+      "@features/*": ["app/features/*"],
+      "@shared/*": ["app/shared/*"],
+      "@auth/*": ["app/features/auth/*"],
+      "@dashboard/*":["app/features/dashboard/*"],
+      "@profile/*":["app/features/profile/*"],
+      "@expenses/*":["app/features/expenses/*"]
+    }
   },
   "include": [
     "src/**/*.ts"
