@@ -39,6 +39,7 @@ export class Header implements OnInit{
   logoutUser() {
     this.authService.logout();
     this.dropdownOpen = false;
+    this.router.navigate(['/home']);
   }
 
   showAuthButtons(): boolean {
