@@ -19,7 +19,8 @@ export class EditProfile implements OnInit {
     email: '',
     mobile: '',
     address: '',
-    joinedDate: ''
+    joinedDate: '',
+    avgexp:0
   };
 
   constructor(private profileService: ProfileService, private router: Router) {}

@@ -1,45 +1,69 @@
-<div class="container mt-5">
-  <div class="profile-card mx-auto">
-    <div class="profile-header text-center">
+<div class="container">
+  <div class="profile-card">
+    <div class="profile-header">
       <div class="profile-pic">
         <img src="assets/images/default-avatar.png" alt="Profile Picture" />
       </div>
-      <h3 class="mt-3">{{ user.name }}</h3>
-      <p class="text-muted mb-0">{{ user.email }}</p>
+      <h3>{{ user.name }}</h3>
     </div>
 
-    <div class="profile-body mt-4">
+    <div class="profile-body">
       <h5 class="section-title">Personal Details</h5>
-      <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>Username</span>
-          <span class="fw-bold">{{ user.username }}</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>Mobile</span>
-          <span class="fw-bold">{{ user.mobile }}</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>Address</span>
-          <span class="fw-bold">{{ user.address }}</span>
-        </li>
-      </ul>
+      <div class="form-grid">
+        <div class="form-column">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span class = 'label'>Username :</span>
+              <span class="fw-bold">{{ user.username }}</span>
+            </li>
+            <li class="list-group-item">
+              <span class = 'label'>Email :</span>
+              <span class="fw-bold">{{ user.email }}</span>
+            </li>
+         </ul>
+        </div>
+        <div class="form-column">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span class = 'label'>Mobile No :</span>
+              <span class="fw-bold">{{ user.mobile }}</span>
+            </li>
+            <li class="list-group-item">
+              <span class = 'label'>Address :</span>
+              <span class="fw-bold">{{ user.address }}</span>
+            </li>
+         </ul>
+        </div>
+      </div>
 
       <h5 class="section-title">Account Info</h5>
-      <ul class="list-group mb-4">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>Member Since</span>
-          <span class="fw-bold">{{ user.joinedDate | date }}</span>
-        </li>
-      </ul>
+      <div class="form-grid">
+        <div class="form-column">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span class = 'label'>Member Since :</span>
+              <span class="fw-bold">{{ user.joinedDate | date }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="form-column">
+          <ul>
+            <li class="list-group-item">
+              <span class = 'label'>Avg Expense :</span>
+              <span class="fw-bold">  ${{ user.avgexp }}</span>
+            </li>
+         </ul>
+        </div>
+      </div>
 
-      <div class="text-center">
-        <button class="btn btn-outline-primary me-2" routerLink="/profile/edit">
+      <div class="btn-container">
+        <button class="btn btn-success" routerLink="/profile/edit">
           Edit Profile
         </button>
-        <a routerLink="/home" class="btn btn-outline-light">Back to Home</a>
+        <button routerLink="/home" class="btn btn-secondary">Back to Home</button>
       </div>
     </div>
+
   </div>
 </div>
     

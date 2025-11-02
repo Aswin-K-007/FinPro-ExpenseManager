@@ -9,6 +9,7 @@ export interface UserProfile {
   mobile: string;
   address: string;
   joinedDate: string;
+  avgexp:number;
 }
 
 @Injectable({
@@ -21,8 +22,9 @@ export class ProfileService {
     username: 'john_doe',
     email: 'john@example.com',
     mobile: '9876543210',
-    address: '123 Main Street, Mumbai',
-    joinedDate: '2024-03-15'
+    address: 'Flat No. 123, Main Street, Mumbai',
+    joinedDate: '2024-03-15',
+    avgexp:1500
   };
 
   constructor() {}
@@ -45,7 +47,8 @@ export class ProfileService {
       email: '',
       mobile: '',
       address: '',
-      joinedDate: ''
+      joinedDate: '',
+      avgexp:0
     };
   }
 }
