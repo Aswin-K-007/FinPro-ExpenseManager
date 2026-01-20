@@ -27,6 +27,10 @@
   padding: 1rem 1.5rem;
   font-weight: 600;
   letter-spacing: 0.5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Add Expense Button */
