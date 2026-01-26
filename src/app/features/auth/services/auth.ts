@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { environment } from 'app/environment';
+import { BehaviorSubject, tap } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,24 +12,33 @@ export class AuthService {
 
   isLoggedIn$ = this.loggedIn.asObservable();
 
-  constructor() {
-    const storedStatus = localStorage.getItem('isLoggedIn');
-    if (storedStatus === 'true') {
-      this.loggedIn.next(true);
-    }
+  constructor(private http: HttpClient) {
+      this.loggedIn.next(!!localStorage.getItem('token'));
   }
 
-  login(): void {
-    this.loggedIn.next(true);
-    localStorage.setItem('isLoggedIn', 'true');
+  login(credentials: { username: string; password: string }) {
+    return this.http.post<any>(
+      `${environment.authApi}/login`,
+      credentials
+    ).pipe(
+      tap(res => {
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('user', JSON.stringify(res));
+        this.loggedIn.next(true);
+      })
+    );
   }
 
   logout(): void {
+    localStorage.clear();
     this.loggedIn.next(false);
-    localStorage.removeItem('isLoggedIn');
   }
 
-  isLoggedIn(): boolean {
-    return this.loggedIn.value;
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getToken();
   }
 }

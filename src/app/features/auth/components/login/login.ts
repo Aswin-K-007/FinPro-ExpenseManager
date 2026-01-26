@@ -12,23 +12,20 @@ import { Router } from '@angular/router';
   styleUrls: ['../../styles/auth-styles.scss']
 })
 export class Login {
-  user ={
+  loginCredentials = {
     username:'',
     password:''
   }
+
+  errorMsg =''
   
   constructor(private authService: AuthService, private router: Router){}
 
   loginUser(){
-    if(this.user.username !== 'aswin' && this.user.password !== 'password'){
-      console.log("Invalid Username or Password",this.user);
-      alert("Invalid Username or Password");
-    }
-    else{
-      this.authService.login();
-      console.log("Login Successful..",this.user);
-      this.router.navigate(['/home']);
-    }
+  this.authService.login(this.loginCredentials).subscribe({
+    next: () => this.router.navigate(['/home']),
+    error: err => this.errorMsg = err.error.message || 'Login failed'
+  });
   }
 
   logoutUser() {
