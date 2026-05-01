@@ -4,7 +4,9 @@
     <button class="btn-add" routerLink="/expenses">← Back</button>
   </div>
 
-  <form class="expense-form" (ngSubmit)="addExpense()" #addExpenseForm="ngForm">
+  <form class="expense-form" 
+  (ngSubmit)="addExpense()"
+  #addExpenseForm="ngForm">
     <div>
       <label for="title">Expense Title</label>
       <input
@@ -64,7 +66,7 @@
       <textarea
         id="notes"
         name="notes"
-        [(ngModel)]="expense.notes"
+        [(ngModel)]="expense.details"
         placeholder="Add optional notes..."
       ></textarea>
     </div>

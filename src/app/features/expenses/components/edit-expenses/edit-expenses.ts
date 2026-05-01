@@ -31,19 +31,19 @@ export class EditExpenses implements OnInit {
     this.expenseId = Number(this.route.snapshot.paramMap.get('id'));
     console.log('Editing expense ID:', this.expenseId);
 
-    this.expenseService.getExpenseById(this.expenseId).subscribe(exp => {
-      if (exp) {
-        this.expense = exp; 
-      } else {
-        console.warn('Expense not found');
-        this.router.navigate(['/expenses']);
-      }
-    });
+    // this.expenseService.getExpenseById(this.expenseId).subscribe(exp => {
+    //   if (exp) {
+    //     this.expense = exp; 
+    //   } else {
+    //     console.warn('Expense not found');
+    //     this.router.navigate(['/expenses']);
+    //   }
+    // });
   }
 
   onUpdate() {
-    this.expenseService.updateExpense(this.expenseId, this.expense).subscribe(() => {
-      this.router.navigate(['/expenses']);
-    });
-  }
+  //   this.expenseService.updateExpense(this.expenseId, this.expense).subscribe(() => {
+  //     this.router.navigate(['/expenses']);
+  //   });
+   }
 }

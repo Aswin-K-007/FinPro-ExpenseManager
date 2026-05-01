@@ -25,9 +25,9 @@ export class ViewExpenses implements OnInit {
     });
   }
 
-  deleteExpense(id: number): void {
-    this.expensesService.deleteExpense(id).subscribe(() => {
-      this.loadExpenses();
-    });
-  }
+  // deleteExpense(id: number): void {
+  //   this.expensesService.deleteExpense(id).subscribe(() => {
+  //     this.loadExpenses();
+  //   });
+  // }
 }

@@ -18,7 +18,7 @@ export class AuthService {
 
   login(credentials: { username: string; password: string }) {
     return this.http.post<any>(
-      `${environment.authApi}/login`,
+      `${environment.apiGateway}/auth/login`,
       credentials
     ).pipe(
       tap(res => {

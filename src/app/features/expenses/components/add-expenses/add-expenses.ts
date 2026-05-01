@@ -14,12 +14,12 @@ import { ExpensesService } from '@expenses/services/expenses';
 export class AddExpenses implements OnInit {
   expenseId: number | null = null;
   expense = {
-    id: 0,
+    id: null,
     title:'',
     category: '',
     amount: 0,
     date: '',
-    notes:''
+    details:''
   };
 
   constructor(
@@ -32,12 +32,19 @@ export class AddExpenses implements OnInit {
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
       this.expenseId = +idParam;
-      const existing = this.expensesService.getExpenseById(this.expenseId);
+      // const existing = this.expensesService.getExpenseById(this.expenseId);
     }
   }
 
-  addExpense(): void {
-      this.expensesService.addExpense(this.expense);
-      this.router.navigate(['/expenses']);
-  }
+ addExpense(): void {
+  this.expensesService.addExpense(this.expense).subscribe({
+    next: (res) => {
+      console.log("Expense added successfully", res);
+      this.router.navigate(['/expenses']); // navigate AFTER success
+    },
+    error: (err) => {
+      console.error("Error adding expense", err);
+    }
+  });
+}
 }
