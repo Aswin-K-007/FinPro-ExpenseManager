@@ -11,14 +11,16 @@ import { ExpensesService } from '@features/expenses/services/expenses';
   templateUrl: './edit-expenses.html',
   styleUrls: ['../../styles/expenses-styles.scss']
 })
+
 export class EditExpenses implements OnInit {
   expenseId!: number;
   expense = {
-    title: '',
-    amount: null,
-    category: '',
+    id:0,
+    title: "",
+    amount: 0,
+    category: "",
     date: '',
-    notes: ''
+    details: ""
   };
 
   constructor(
@@ -28,22 +30,31 @@ export class EditExpenses implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.expenseId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('Editing expense ID:', this.expenseId);
+  this.expenseId = Number(this.route.snapshot.paramMap.get('id'));
+  console.log('Editing expense ID:', this.expenseId);
 
-    // this.expenseService.getExpenseById(this.expenseId).subscribe(exp => {
-    //   if (exp) {
-    //     this.expense = exp; 
-    //   } else {
-    //     console.warn('Expense not found');
-    //     this.router.navigate(['/expenses']);
-    //   }
-    // });
-  }
+  this.expenseService.getExpenseById(this.expenseId).subscribe(exp => {
+    console.log(exp);
+    if (exp) {
+      this.expense = {
+        id:this.expenseId,
+        title: exp.title,
+        amount: exp.amount,
+        category: exp.category,
+        date: exp.date ? exp.date.split('T')[0] : '',
+        details: exp.details
+      };
+
+    } else {
+      console.warn('Expense not found');
+      this.router.navigate(['/expenses']);
+    }
+  });
+}
 
   onUpdate() {
-  //   this.expenseService.updateExpense(this.expenseId, this.expense).subscribe(() => {
-  //     this.router.navigate(['/expenses']);
-  //   });
+    this.expenseService.updateExpense(this.expense).subscribe(() => {
+      this.router.navigate(['/expenses']);
+    });
    }
 }

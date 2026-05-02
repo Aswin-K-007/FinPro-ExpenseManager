@@ -21,13 +21,20 @@ export class ViewExpenses implements OnInit {
 
   loadExpenses(): void {
     this.expensesService.getExpenses().subscribe(data => {
+      console.log("New data:", data);
       this.expenses = data;
     });
   }
 
-  // deleteExpense(id: number): void {
-  //   this.expensesService.deleteExpense(id).subscribe(() => {
-  //     this.loadExpenses();
-  //   });
-  // }
+  deleteExpense(id: number): void {
+  console.log("Deleting ID:", id);
+
+  this.expensesService.deleteExpense(id).subscribe({
+    next: () => {
+      console.log("Deleted successfully, reloading...");
+      this.loadExpenses();
+    },
+    error: (err) => console.log(err)
+  });
+}
 }
