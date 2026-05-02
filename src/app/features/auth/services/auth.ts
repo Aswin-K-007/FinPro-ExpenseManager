@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'app/environment';
+import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, tap } from 'rxjs';
 
 
@@ -22,8 +23,14 @@ export class AuthService {
       credentials
     ).pipe(
       tap(res => {
+        const decoded: any = jwtDecode(res.token);
+        const userId = decoded.userId;
+        const userName = decoded.sub;
+
         localStorage.setItem('token', res.token);
-        localStorage.setItem('user', JSON.stringify(res));
+        localStorage.setItem('userId', userId);
+        localStorage.setItem('userName' ,userName);
+
         this.loggedIn.next(true);
       })
     );

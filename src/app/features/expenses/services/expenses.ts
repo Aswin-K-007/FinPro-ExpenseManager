@@ -5,7 +5,7 @@ import { environment } from 'app/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ExpensesService {
-  private userId = 1;
+  private userId = localStorage.getItem('userId');
   private expenseApi = `${environment.apiGateway}/expenses/${this.userId}`;
   
 
