@@ -18,18 +18,31 @@ export class Login {
   }
 
   errorMsg =''
+  isLoading=false;
   
   constructor(private authService: AuthService, private router: Router){}
 
   loginUser(){
+  this.isLoading = true;
   this.authService.login(this.loginCredentials).subscribe({
-    next: () => this.router.navigate(['/home']),
-    error: err => this.errorMsg = err.error.message || 'Login failed'
+    next: () => {
+      setTimeout(() => {
+      this.isLoading = false;
+      this.router.navigate(['/home']);
+    }, 500);},
+    error: err => { 
+      this.isLoading = false; 
+      this.errorMsg = err.error.message || 'Login failed';
+    }
   });
   }
 
   logoutUser() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  onInputChange() {
+    this.errorMsg = '';
   }
 }

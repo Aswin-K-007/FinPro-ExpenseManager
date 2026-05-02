@@ -1,3 +1,7 @@
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="spinner"></div>
+</div>
+
 <div class="login-container">
   <h3 class="welcome-text">
     Welcome to <span class="brand">FinPro !!!!!</span> 🎉<br />
@@ -6,6 +10,10 @@
   <form #loginForm="ngForm" (ngSubmit)="loginUser()" class="auth-form">
     <h2 class="auth-title">User Login</h2>
 
+    <p *ngIf="errorMsg" class="error-message">
+       ⚠ {{ errorMsg }}
+    </p>
+
     <div class="form-group">
       <label for="username">User Name</label>
       <input
@@ -13,6 +21,7 @@
         type="text"
         name="username"
         [(ngModel)]="loginCredentials.username"
+        (input)="onInputChange()"
         required
         class="auth-input"
       />

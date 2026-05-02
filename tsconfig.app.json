@@ -4,7 +4,7 @@
     "outDir": "./out-tsc/app",
     "types": [],
     "baseUrl": "src",
-    "rootDir": "./src",   // ✅ ADD THIS
+    "rootDir": "./src",   
     "paths": {
       "@features/*": ["app/features/*"],
       "@shared/*": ["app/shared/*"],
