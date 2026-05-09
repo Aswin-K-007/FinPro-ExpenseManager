@@ -14,7 +14,7 @@
             type="text" 
             id="firstName" 
             name="firstName" 
-            [(ngModel)]="user.firstName" 
+            [(ngModel)]="request.firstName" 
             required 
             class="auth-input" />
         </div>
@@ -25,7 +25,7 @@
             type="email" 
             id="email" 
             name="email" 
-            [(ngModel)]="user.email" 
+            [(ngModel)]="request.email" 
             required 
             class="auth-input" />
         </div>
@@ -36,7 +36,7 @@
             type="password" 
             id="password" 
             name="password" 
-            [(ngModel)]="user.password" 
+            [(ngModel)]="request.password" 
             required 
             minlength="8" 
             class="auth-input" />
@@ -52,7 +52,7 @@
             type="text" 
             id="lastName" 
             name="lastName" 
-            [(ngModel)]="user.lastName" 
+            [(ngModel)]="request.lastName" 
             required 
             class="auth-input" />
         </div>
@@ -63,7 +63,7 @@
             type="tel" 
             id="contactNo" 
             name="contactNo" 
-            [(ngModel)]="user.contactNo" 
+            [(ngModel)]="request.mobileNo" 
             required 
             class="auth-input" />
         </div>
@@ -74,7 +74,7 @@
             type="password" 
             id="confirmPassword" 
             name="confirmPassword" 
-            [(ngModel)]="user.confirmPassword" 
+            [(ngModel)]="request.confirmPassword" 
             required 
             minlength="8" 
             class="auth-input" />
